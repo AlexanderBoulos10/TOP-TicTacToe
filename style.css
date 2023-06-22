@@ -8,6 +8,7 @@ h1{
     margin: 0;
     margin-bottom: 30px;
     font-size: 75px;
+    text-align: center;
 }
 
 .restart{
@@ -52,6 +53,14 @@ h1{
     border: 3px solid #d62828;
 }
 
+@media (max-width: 390px){
+    .cell{
+        font-size: 80px;
+        width: 70px;
+        height: 70px;
+    }
+}
+
 .one.cell{
     border-top: none;
 }
@@ -76,6 +85,7 @@ h1{
     font-size: 50px;
     margin-top: 30px;
     margin-bottom: 0;
+    text-align: center;
 }
 
 .winningCombo{
