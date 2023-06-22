@@ -22,19 +22,32 @@ const Player = (symbol) => {
 };
 
 const GameBoard = (() => {
+	let isWinner = false;
 	const resetBoard = () => {
 		for (let cell of cells) {
 			cell.textContent = "";
 			winningText.textContent = "";
 		}
-		GameBoard.toggleClick();
+		if (isWinner) {
+			console.log("toggle");
+			isWinner = false;
+			toggleClick();
+		}
 		console.log("reset");
 		currentPlayer = 1;
 	};
 
 	const isFull = () => {
+		let count = 0;
 		for (let cell of cells) {
-			cell.textContent != "";
+			if (cell.textContent !== "") {
+				count++;
+			} else {
+				count = 0;
+			}
+		}
+		if (count === 9) {
+			return true;
 		}
 	};
 
@@ -53,6 +66,7 @@ const GameBoard = (() => {
 				cells[a].textContent === cells[c].textContent &&
 				cells[a].textContent != ""
 			) {
+				isWinner = true;
 				return true;
 			}
 		}
@@ -85,12 +99,14 @@ const Gameplay = () => {
 				currentPlayer *= -1;
 				console.log("O");
 			}
-			if (GameBoard.checkForWinner() === true) {
+			if (GameBoard.checkForWinner()) {
 				currentPlayer *= -1;
 				let winner = currentPlayer == 1 ? playerX : playerO;
 				winningText.textContent = `Player ${winner.getSymbol()} is the Winner!`;
 				GameBoard.toggleClick();
 				return;
+			} else if (GameBoard.isFull()) {
+				winningText.textContent = `It is a Draw!`;
 			}
 		});
 	}
