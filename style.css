@@ -53,14 +53,6 @@ h1{
     border: 3px solid #d62828;
 }
 
-@media (max-width: 390px){
-    .cell{
-        font-size: 80px;
-        width: 70px;
-        height: 70px;
-    }
-}
-
 .one.cell{
     border-top: none;
 }
@@ -90,4 +82,20 @@ h1{
 
 .winningCombo{
     background-color: #e5da9d;
+}
+
+@media (max-width: 390px){
+    .cell{
+        font-size: 80px;
+        width: 70px;
+        height: 70px;
+    }
+
+    h1{
+        font-size: 50px;
+    }
+
+    .winnerText{
+        font-size: 40px;
+    }
 }
