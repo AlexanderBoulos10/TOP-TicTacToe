@@ -1,6 +1,8 @@
 const resetBoard = document.querySelector(".restart");
 const cells = [...document.querySelectorAll(".cell")];
 const winningText = document.querySelector(".winnerText");
+const mySound = new Audio("blockSound.mp3");
+const victorySound = new Audio("victorySound.mp3");
 let currentPlayer = 1;
 
 const winningSequences = [
@@ -55,6 +57,7 @@ const GameBoard = (() => {
 	const addPlayerSymbol = (symbol, cell) => {
 		if (cell.textContent == "") {
 			cell.textContent = symbol;
+			mySound.play();
 		}
 	};
 
@@ -106,6 +109,7 @@ const Gameplay = () => {
 			if (GameBoard.checkForWinner()) {
 				currentPlayer *= -1;
 				let winner = currentPlayer == 1 ? playerX : playerO;
+				victorySound.play();
 				winningText.textContent = `Player ${winner.getSymbol()} is the Winner!`;
 				GameBoard.toggleClick();
 				return;
