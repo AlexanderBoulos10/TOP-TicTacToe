@@ -1,5 +1,7 @@
 body{
     font-family: 'Bubblegum Sans', cursive;
+    background-color: #eae2b7;
+    color: #d62828;
 }
 
 h1{
@@ -12,6 +14,17 @@ h1{
     font-family: 'Bubblegum Sans', cursive;
     font-size: 40px;
     margin-bottom: 30px;
+    background-color: #003049;
+    color: #d62828;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 40px;
+    transition: background-color 0.25s;
+}
+
+.restart:hover{
+    cursor: pointer;
+    background-color: #004a71;
 }
 
 .container{
@@ -33,9 +46,10 @@ h1{
     align-items: center;
     width: 100px;
     height: 100px;
-    font-size: 150px;
+    font-size: 130px;
+    color: #003049;
     padding: 10px;
-    border: 2px solid red;
+    border: 3px solid #d62828;
 }
 
 .one.cell{
@@ -56,4 +70,14 @@ h1{
 
 .toggleClick{
     pointer-events: none;
+}
+
+.winnerText{
+    font-size: 50px;
+    margin-top: 30px;
+    margin-bottom: 0;
+}
+
+.winningCombo{
+    background-color: #e5da9d;
 }

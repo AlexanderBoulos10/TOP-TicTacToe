@@ -26,6 +26,7 @@ const GameBoard = (() => {
 	const resetBoard = () => {
 		for (let cell of cells) {
 			cell.textContent = "";
+			cell.classList.remove("winningCombo");
 			winningText.textContent = "";
 		}
 		if (isWinner) {
@@ -66,6 +67,9 @@ const GameBoard = (() => {
 				cells[a].textContent === cells[c].textContent &&
 				cells[a].textContent != ""
 			) {
+				cells[a].classList.add("winningCombo");
+				cells[b].classList.add("winningCombo");
+				cells[c].classList.add("winningCombo");
 				isWinner = true;
 				return true;
 			}
